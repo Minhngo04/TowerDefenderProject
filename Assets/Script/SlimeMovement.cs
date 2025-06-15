@@ -5,11 +5,8 @@ public class SlimeMovement : MonoBehaviour
 {
     public float speed = 2f;
 
-    private List<Vector3> path1 = new List<Vector3>();
-    private List<Vector3> path2 = new List<Vector3>();
-    private List<Vector3> fullPath = new List<Vector3>();
-
-    private HashSet<int> jumpPoints = new HashSet<int> { 2, 5 }; // Các điểm slime sẽ nhảy
+    private List<Vector3> fullPath = new();
+    private HashSet<int> jumpPoints = new() { 2, 5 };
 
     private int currentPointIndex = 0;
     private Animator animator;
@@ -17,34 +14,22 @@ public class SlimeMovement : MonoBehaviour
     private float jumpDuration = 0.5f;
     private float jumpTimer = 0f;
 
+    public void SetPath(List<Vector3> path)
+    {
+        fullPath = path;
+    }
+
     void Start()
     {
         animator = GetComponent<Animator>();
-
-        // Tạo đường đi
-        path1.Add(new Vector3(-12, 1, 0));
-        path1.Add(new Vector3(-6, 1, 0));
-        path1.Add(new Vector3(-6, -3, 0));
-        path1.Add(new Vector3(1, -3, 0));
-        path1.Add(new Vector3(-1, -2, 0));
-        path1.Add(new Vector3(11, -2, 0));
-
-        path2.Add(new Vector3(-12, 1, 0));
-        path2.Add(new Vector3(-6, 1, 0));
-        path2.Add(new Vector3(-6, -3, 0));
-        path2.Add(new Vector3(1, -3, 0));
-        path2.Add(new Vector3(1, 2, 0));
-        path2.Add(new Vector3(10, 2, 0));
-
-        bool choosePath1 = Random.value > 0.5f;
-        fullPath = choosePath1 ? path1 : path2;
     }
 
     void Update()
     {
         if (currentPointIndex >= fullPath.Count)
         {
-            animator.SetBool("isJumping", false);
+            animator?.SetBool("isJumping", false);
+            Destroy(gameObject); // Hủy slime khi hoàn thành đường đi
             return;
         }
 
@@ -55,7 +40,7 @@ public class SlimeMovement : MonoBehaviour
             {
                 isJumping = false;
                 jumpTimer = 0f;
-                animator.SetBool("isJumping", false);
+                animator?.SetBool("isJumping", false);
                 currentPointIndex++;
             }
             return;
@@ -65,13 +50,15 @@ public class SlimeMovement : MonoBehaviour
         float distance = Vector3.Distance(transform.position, targetPos);
         Vector3 direction = (targetPos - transform.position).normalized;
 
+        // Nếu đến điểm nhảy
         if (jumpPoints.Contains(currentPointIndex) && distance < 0.1f)
         {
             isJumping = true;
-            animator.SetBool("isJumping", true);
+            animator?.SetBool("isJumping", true);
             return;
         }
 
+        // Di chuyển đến điểm tiếp theo
         if (distance > 0.05f)
         {
             transform.position += direction * speed * Time.deltaTime;
@@ -81,6 +68,7 @@ public class SlimeMovement : MonoBehaviour
             currentPointIndex++;
         }
 
+        // Lật hướng slime theo chiều di chuyển
         if (direction.x != 0)
         {
             Vector3 scale = transform.localScale;
