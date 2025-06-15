@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4799053740041141559}
   - component: {fileID: 1057271851263413621}
   - component: {fileID: 3047457030193852094}
-  - component: {fileID: 8628986463663459424}
   - component: {fileID: 8303765512780508361}
+  - component: {fileID: 5179347245177158586}
   m_Layer: 0
   m_Name: Camp
-  m_TagString: Untagged
+  m_TagString: Camp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -223,20 +223,6 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &8628986463663459424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: -8652483291839062895, guid: 5258dace16270204fb196cdd78088dd8, type: 3}
-  m_PrefabInstance: {fileID: 1798370121692521706}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6092358542477453170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5cf87013787af44e8c4fce7a4dcf4ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerOptionUI: {fileID: 2251196012196058015, guid: 1c6bb7796cc6ab64c9e6a68a205ba150, type: 3}
-  uiOffset: {x: 0, y: 100}
 --- !u!1 &8155961520431870643
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,8 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2926021151284396457}
   - component: {fileID: 8099992257342168478}
-  - component: {fileID: 3217769588363298576}
-  - component: {fileID: 9175825198216103766}
+  - component: {fileID: 332774529738683261}
   m_Layer: 0
   m_Name: CampTileClickHandler
   m_TagString: Untagged
@@ -264,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8155961520431870643}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.09847, y: -0.51128, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -279,7 +264,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8155961520431870643}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -316,36 +301,46 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3217769588363298576
-MonoBehaviour:
+--- !u!1839735485 &332774529738683261
+Tilemap:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8155961520431870643}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5cf87013787af44e8c4fce7a4dcf4ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerOptionUI: {fileID: 2251196012196058015, guid: 1c6bb7796cc6ab64c9e6a68a205ba150, type: 3}
-  uiOffset: {x: 0, y: 100}
---- !u!114 &9175825198216103766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8155961520431870643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5cf87013787af44e8c4fce7a4dcf4ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerOptionUI: {fileID: 2251196012196058015, guid: 1c6bb7796cc6ab64c9e6a68a205ba150, type: 3}
-  uiOffset: {x: 22, y: 100}
+  m_Tiles: {}
+  m_AnimatedTiles: {}
+  m_TileAssetArray: []
+  m_TileSpriteArray: []
+  m_TileMatrixArray: []
+  m_TileColorArray: []
+  m_TileObjectToInstantiateArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0, y: 0, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
 --- !u!1001 &1798370121692521706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -410,6 +405,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7212793722503435636, guid: 5258dace16270204fb196cdd78088dd8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8303765512780508361}
+    - targetCorrespondingSourceObject: {fileID: 7212793722503435636, guid: 5258dace16270204fb196cdd78088dd8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5179347245177158586}
   m_SourcePrefab: {fileID: 100100000, guid: 5258dace16270204fb196cdd78088dd8, type: 3}
 --- !u!61 &8303765512780508361
 BoxCollider2D:
@@ -457,3 +455,41 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 22.47619, y: 7.452381}
   m_EdgeRadius: 0
+--- !u!19719996 &5179347245177158586
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6092358542477453170}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
