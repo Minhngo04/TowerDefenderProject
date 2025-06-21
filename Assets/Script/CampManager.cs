@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Dynamic;
 
 public class CampManager : MonoBehaviour
 {
-    public GameObject placeButtonPrefab; // Gán prefab PlaceButton ở đây
-    public Canvas canvas; // Gán Canvas chính
-    private Camera mainCamera;
+    public GameObject hammerIconPrefab;
+    public Canvas canvas;
 
-    private List<GameObject> activeButtons = new List<GameObject>();
+    private Camera mainCamera;
+    private List<GameObject> activeIcons = new List<GameObject>();
 
     void Start()
     {
@@ -19,37 +21,49 @@ public class CampManager : MonoBehaviour
     {
         if (Keyboard.current.bKey.wasPressedThisFrame)
         {
-            ShowButtonsOnCamps();
+            ShowHammerIconsOnCamps();
         }
     }
 
-    void ShowButtonsOnCamps()
+    void ShowHammerIconsOnCamps()
     {
-        // Xoá nút cũ nếu có
-        foreach (var btn in activeButtons)
+        foreach (var icon in activeIcons)
         {
-            Destroy(btn);
+            Destroy(icon);
         }
-        activeButtons.Clear();
+        activeIcons.Clear();
 
-        // Tìm tất cả Camp theo tag
         GameObject[] camps = GameObject.FindGameObjectsWithTag("Camp");
 
         foreach (GameObject camp in camps)
         {
             Vector3 screenPos = mainCamera.WorldToScreenPoint(camp.transform.position);
 
-            GameObject btn = Instantiate(placeButtonPrefab, canvas.transform);
-            btn.transform.position = screenPos + new Vector3(0, 50f, 0); // offset lên trên
+            GameObject icon = Instantiate(hammerIconPrefab, canvas.transform);
+            icon.transform.position = screenPos + new Vector3(0, 50f, 0);
 
-            // Gán callback (nếu có script xử lý)
-            btn.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+            Animator campAnimator = camp.GetComponent<Animator>();
+            CampInfo campInfo = camp.GetComponent<CampInfo>();
+
+            string triggerName = (campInfo != null) ? campInfo.triggerName : "Tower1";
+
+            icon.GetComponent<Button>().onClick.AddListener(() =>
             {
-                Debug.Log("Đặt turret tại: " + camp.name);
-                // TODO: Gọi hàm đặt turret tại camp
+                Debug.Log("Click hammer on camp: " + camp.name + " → Trigger: " + triggerName);
+
+                if (campAnimator != null)
+                {
+                    campAnimator.SetTrigger(triggerName);
+                }
+                else
+                {
+                    Debug.LogWarning("Animator not found on " + camp.name);
+                }
+
+                Destroy(icon);
             });
 
-            activeButtons.Add(btn);
+            activeIcons.Add(icon);
         }
     }
 }
