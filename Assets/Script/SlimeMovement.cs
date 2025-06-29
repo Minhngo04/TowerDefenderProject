@@ -23,6 +23,14 @@ public class SlimeMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.CompareTag("Bullet"))
+    //    {
+    //        GetComponent<SlimeHealth>()?.TakeDamage(20f);
+    //        Destroy(other.gameObject);
+    //    }
+    //}
 
     void Update()
     {

@@ -179,8 +179,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 875500739
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 1e720a79f08c8ac4895e409794d08e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: Tower2
+  archerPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &426145674
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,8 +305,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 875500739
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 1e720a79f08c8ac4895e409794d08e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -325,13 +327,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426145674}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0078048343, w: 0.99996954}
   m_LocalPosition: {x: -1.38, y: 2.5, z: 0}
   m_LocalScale: {x: 2.322686, y: 2.2821167, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.894}
 --- !u!95 &426145677
 Animator:
   serializedVersion: 7
@@ -367,6 +369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: Tower1
+  archerPrefab: {fileID: 8441468421263585752, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+  spawnPoint: {fileID: 426145676}
 --- !u!1 &453613846
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +669,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000f51a643e957ba004cf1e6e3eefe651d96df1b63ecb39e0f6c3142f3471a732af
+  m_ApplyToSortingLayers: 00000000f51a643e957ba004cf1e6e3eefe651d96df1b63ecb39e0f6c3142f3471a732afb11d875a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -744,6 +748,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: Tower3
+  archerPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!212 &694484140
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -785,8 +791,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 875500739
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 1e720a79f08c8ac4895e409794d08e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -918,8 +924,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 875500739
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 1e720a79f08c8ac4895e409794d08e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -960,6 +966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: Tower6
+  archerPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &1193824905 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8232209678654107109, guid: f804a52056e383b4eb51c168fb1d7a3d, type: 3}
@@ -1099,8 +1107,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 875500739
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 1e720a79f08c8ac4895e409794d08e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1141,6 +1149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: Tower4
+  archerPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &1661537524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1305,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1052176749
-  m_SortingLayer: -4
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.016129017, y: 0.016129017, z: 0}
@@ -3877,8 +3887,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 875500739
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 1e720a79f08c8ac4895e409794d08e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3919,6 +3929,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: Tower7
+  archerPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &1702049921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,7 +4006,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -153077301
-  m_SortingLayer: -3
+  m_SortingLayer: -4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.15476191, y: 0.28571427, z: 0}
@@ -4508,8 +4520,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 875500739
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: -855298285791758126, guid: 1e720a79f08c8ac4895e409794d08e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4550,6 +4562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerName: Tower5
+  archerPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &2033022478
 GameObject:
   m_ObjectHideFlags: 0
@@ -4870,6 +4884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1177009343116933634, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 3422135625532199162, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.48
@@ -4915,6 +4933,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
+--- !u!1001 &7567475931828313127
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974980143545430343, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8441468421263585752, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
+      propertyPath: m_Name
+      value: Archer_1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0de92f4c074f124bbaaaa7839db5fc2, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -4932,3 +5007,4 @@ SceneRoots:
   - {fileID: 2009032512}
   - {fileID: 804241380}
   - {fileID: 1701601546}
+  - {fileID: 7567475931828313127}
