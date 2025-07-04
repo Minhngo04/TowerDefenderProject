@@ -19,12 +19,14 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
-        // Đạn luôn bay về phía enemy (homing)
+        // Bay về phía target
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
 
+        // Nếu tới gần đủ, gây sát thương
         if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
@@ -33,7 +35,25 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        // TODO: Gây sát thương cho enemy ở đây nếu muốn
+        Debug.Log("Bullet hit target!");
+
+        // Tìm SlimeHealth ở target hoặc con của nó
+        SlimeHealth enemyHealth = target.GetComponent<SlimeHealth>();
+        if (enemyHealth == null)
+        {
+            enemyHealth = target.GetComponentInChildren<SlimeHealth>();
+        }
+
+        if (enemyHealth != null)
+        {
+            Debug.Log($"Enemy takes {Damage} damage");
+            enemyHealth.TakeDamage(Damage);
+        }
+        else
+        {
+            Debug.LogWarning("Target does not have SlimeHealth component!");
+        }
+
         Destroy(gameObject);
     }
-} 
+}

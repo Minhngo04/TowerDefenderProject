@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2347347725496648705}
   - component: {fileID: 3705162565702898858}
+  - component: {fileID: -1521340150690806877}
   m_Layer: 0
   m_Name: Tanks_0
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2082919, y: 0.2293043, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,3 +88,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1521340150690806877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3272461132346874829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d781e98181a4a594fa0a8d667de98a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 5
+  delayBtwAttacks: 2
+  damage: 20
+  projectileSpawnPosition: {fileID: 2347347725496648705}
+  bulletPrefab: {fileID: 6968930727842562439, guid: 97067a9690d8b1445b5982482196ebd4, type: 3}

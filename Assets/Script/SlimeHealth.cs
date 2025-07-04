@@ -6,7 +6,7 @@ public class SlimeHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
 
-    public Image healthFill; // Gán trong Inspector
+    public Image healthFill; // Kéo vào từ Inspector
 
     void Start()
     {
@@ -18,6 +18,8 @@ public class SlimeHealth : MonoBehaviour
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        Debug.Log($"[SlimeHealth] Took {amount} damage. Current health: {currentHealth}");
 
         UpdateHealthBar();
 
@@ -37,6 +39,7 @@ public class SlimeHealth : MonoBehaviour
 
     void Die()
     {
+        Debug.Log("[SlimeHealth] Enemy died.");
         Destroy(gameObject); // hoặc phát hiệu ứng chết
     }
 }

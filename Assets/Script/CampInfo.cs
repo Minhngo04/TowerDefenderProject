@@ -2,34 +2,55 @@
 
 public class CampInfo : MonoBehaviour
 {
-    public string triggerName = "Tower1"; // Mặc định là Tower1, bạn có thể đổi theo camp
-    public GameObject archerPrefab; // Gán prefab Archer ở đây
-    public Transform spawnPoint;    // Nơi archer xuất hiện (trên nóc tower)
+    public string triggerName = "Tower1";           // Tên trigger (tùy chọn)
+    public GameObject infoPanel;                    // Panel chọn loại pháo
 
-    private bool isBuilt = false;
+    [HideInInspector] public static CampInfo selectedCamp; // Camp đang được chọn
+    private bool isBuilt = false;                   // Kiểm tra đã xây chưa
 
-    // Gọi từ animation event hoặc từ logic kết thúc xây dựng
-    public void OnTowerBuilt()
+    private void OnMouseDown()
     {
+        // Không cho chọn lại nếu đã xây
         if (isBuilt) return;
 
-        isBuilt = true;
-        SpawnArcher();
+        // Đánh dấu camp đang được chọn
+        selectedCamp = this;
+
+        Debug.Log($"🟨 CampBase clicked: {gameObject.name}");
+
+        // Hiện panel chọn pháo nếu có
+        if (infoPanel != null)
+        {
+            infoPanel.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ InfoPanel chưa được gán trong Inspector!");
+        }
     }
 
-    void SpawnArcher()
+    /// <summary>
+    /// Hàm gọi từ panel để xây pháo tại camp này
+    /// </summary>
+    /// <param name="towerPrefab">Prefab của pháo</param>
+    public void BuildTower(GameObject towerPrefab)
     {
-        // Lấy vị trí gốc từ camp và cộng thêm offset
-        Vector3 spawnPos = transform.position + new Vector3(-0.006f, 0.112f, 0f);
-        spawnPos.z = 0; // đảm bảo đúng lớp hiển thị camera
+        if (isBuilt || towerPrefab == null) return;
 
-        GameObject archer = Instantiate(archerPrefab, spawnPos, Quaternion.identity, transform);
+        // Tạo pháo tại vị trí CampBase
+        GameObject tower = Instantiate(towerPrefab, transform.position, Quaternion.identity, transform);
 
-        // Gán scale đúng như bạn đã đo
-        archer.transform.localScale = new Vector3(0.814f, 0.784f, 1f);
+        // ✅ Thu nhỏ pháo để phù hợp (chỉnh scale tùy ý bạn)
+        tower.transform.localScale = new Vector3(0.2082919f, 0.2293043f, 1f);
 
-        Debug.Log($"✅ Archer spawned at {spawnPos} with scale {archer.transform.localScale}");
+        isBuilt = true;
+
+        Debug.Log($"✅ Tower built on {gameObject.name}");
+
+        // Ẩn panel sau khi chọn
+        if (infoPanel != null)
+        {
+            infoPanel.SetActive(false);
+        }
     }
-
-
 }
