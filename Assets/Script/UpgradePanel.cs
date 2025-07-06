@@ -7,6 +7,7 @@ public class UpgradePanel : MonoBehaviour
     public TextMeshProUGUI costText;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI damageText;
+    public TextMeshProUGUI sellPriceText; // Text hiển thị giá bán
     
     private TowerUpgrade currentTower;
     
@@ -58,6 +59,16 @@ public class UpgradePanel : MonoBehaviour
         {
             currentTower.UpgradeTower();
             UpdateUpgradeUI();
+            HideUpgradePanel(); // Đóng panel sau khi upgrade
+        }
+    }
+    
+    public void SellButtonClicked()
+    {
+        if (currentTower != null)
+        {
+            currentTower.SellTower();
+            HideUpgradePanel(); // Đóng panel sau khi sell
         }
     }
     
@@ -76,5 +87,16 @@ public class UpgradePanel : MonoBehaviour
             
         if (damageText != null)
             damageText.text = "Damage: " + tower.damage.ToString("F1");
+            
+        if (sellPriceText != null)
+        {
+            int sellPrice = currentTower.GetSellPrice();
+            sellPriceText.text = $"Sell: {sellPrice}";
+            Debug.Log($"📱 UI Update: Sell price text set to '{sellPriceText.text}'");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ sellPriceText is null! Please assign it in Inspector");
+        }
     }
 } 

@@ -38,14 +38,25 @@ public class Tower : MonoBehaviour
     
     private void OnMouseDown()
     {
+        Debug.Log($"🖱️ Tower {gameObject.name} clicked");
+        
         if (towerUpgrade != null && towerUpgrade.upgradePanel != null)
         {
+            Debug.Log($"✅ Opening upgrade panel for {gameObject.name}");
             towerUpgrade.upgradePanel.SetActive(true);
             UpgradePanel panelScript = towerUpgrade.upgradePanel.GetComponent<UpgradePanel>();
             if (panelScript != null)
             {
                 panelScript.ShowUpgradePanel(towerUpgrade);
             }
+            else
+            {
+                Debug.LogWarning($"⚠️ UpgradePanel script not found on {towerUpgrade.upgradePanel.name}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"⚠️ Cannot open upgrade panel: towerUpgrade={towerUpgrade}, upgradePanel={towerUpgrade?.upgradePanel}");
         }
     }
 

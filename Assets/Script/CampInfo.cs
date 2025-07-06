@@ -104,4 +104,13 @@ public class CampInfo : MonoBehaviour
             }
         }
     }
+    
+    /// <summary>
+    /// Reset trạng thái camp khi bán tower
+    /// </summary>
+    public void ResetCamp()
+    {
+        isBuilt = false;
+        Debug.Log($"🔄 Camp {gameObject.name} reset - ready for new tower");
+    }
 }
