@@ -76,6 +76,29 @@ public class CampInfo : MonoBehaviour
             UpgradePanel panelScript = FindObjectOfType<UpgradePanel>();
             if (panelScript != null)
                 upgrade.upgradePanel = panelScript.gameObject;
+                
+            // Thêm TowerClickHandler để cải thiện vùng click
+            TowerClickHandler clickHandler = tower.GetComponent<TowerClickHandler>();
+            if (clickHandler == null)
+            {
+                clickHandler = tower.AddComponent<TowerClickHandler>();
+                // Cấu hình vùng click
+                clickHandler.clickAreaMultiplier = 2.0f; // Vùng click lớn hơn 2 lần
+                clickHandler.useFixedClickArea = true; // Sử dụng vùng click cố định
+            }
+            
+            // Đảm bảo vùng click được thiết lập ngay lập tức
+            if (clickHandler != null)
+            {
+                clickHandler.RefreshClickArea();
+            }
+            
+            // Đảm bảo BoxCollider2D được enable
+            BoxCollider2D boxCollider = tower.GetComponent<BoxCollider2D>();
+            if (boxCollider != null)
+            {
+                boxCollider.enabled = true;
+            }
 
             isBuilt = true;
 

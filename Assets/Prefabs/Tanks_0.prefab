@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 4
-  delayBtwAttacks: 2
-  damage: 20
+  delayBtwAttacks: 1
+  damage: 35
   projectileSpawnPosition: {fileID: 2347347725496648705}
   bulletPrefab: {fileID: 6968930727842562439, guid: 97067a9690d8b1445b5982482196ebd4, type: 3}
 --- !u!114 &584100476715307770
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce420a942c72a4448cd041317f3d2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 20
+  cost: 60
 --- !u!114 &-114218942185102481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0179cc298d0b443a8621ec94922add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeCost: 10
-  damageIncrease: 10
+  upgradeCost: 20
+  damageIncrease: 20
   upgradePanel: {fileID: 0}
   costText: {fileID: 0}
   levelText: {fileID: 0}
@@ -183,5 +183,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.37, y: 3.23}
+  m_Size: {x: 2.55, y: 3.23}
   m_EdgeRadius: 0

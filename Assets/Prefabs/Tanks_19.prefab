@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7058161866203947671
+--- !u!1 &5010722656760809057
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4086359134859105524}
-  - component: {fileID: 7924861072566930394}
-  - component: {fileID: 6744177416009982689}
-  - component: {fileID: 2925860635919036994}
-  - component: {fileID: 2579113543447153065}
-  - component: {fileID: 4451340067219433580}
+  - component: {fileID: 6468054527861020048}
+  - component: {fileID: 7011978197181417090}
+  - component: {fileID: 1503259912011218095}
+  - component: {fileID: -6338866331120403951}
+  - component: {fileID: -1982996561360049060}
+  - component: {fileID: 232188237489440618}
   m_Layer: 0
-  m_Name: Tanks_11
+  m_Name: Tanks_19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4086359134859105524
+--- !u!4 &6468054527861020048
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058161866203947671}
+  m_GameObject: {fileID: 5010722656760809057}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -36,13 +36,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7924861072566930394
+--- !u!212 &7011978197181417090
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058161866203947671}
+  m_GameObject: {fileID: 5010722656760809057}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,72 +80,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5729083747018591566, guid: d6245c6fff3e8a44691b04baccded629, type: 3}
+  m_Sprite: {fileID: -4316592164830538274, guid: d6245c6fff3e8a44691b04baccded629, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.64, y: 3.01}
+  m_Size: {x: 1.62, y: 3.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6744177416009982689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058161866203947671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cce420a942c72a4448cd041317f3d2b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cost: 20
---- !u!114 &2925860635919036994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058161866203947671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db0179cc298d0b443a8621ec94922add, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeCost: 20
-  damageIncrease: 15
-  upgradePanel: {fileID: 0}
-  costText: {fileID: 0}
-  levelText: {fileID: 0}
-  damageText: {fileID: 0}
---- !u!114 &2579113543447153065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058161866203947671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d781e98181a4a594fa0a8d667de98a2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 4
-  delayBtwAttacks: 2
-  damage: 20
-  projectileSpawnPosition: {fileID: 4086359134859105524}
-  bulletPrefab: {fileID: 6968930727842562439, guid: 97067a9690d8b1445b5982482196ebd4, type: 3}
---- !u!61 &4451340067219433580
+--- !u!61 &1503259912011218095
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058161866203947671}
+  m_GameObject: {fileID: 5010722656760809057}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -177,11 +129,59 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.64, y: 3.01}
-    newSize: {x: 2.64, y: 3.01}
+    oldSize: {x: 1.62, y: 3.32}
+    newSize: {x: 1.62, y: 3.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.64, y: 3.01}
+  m_Size: {x: 1.92, y: 3.32}
   m_EdgeRadius: 0
+--- !u!114 &-6338866331120403951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010722656760809057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce420a942c72a4448cd041317f3d2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 40
+--- !u!114 &-1982996561360049060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010722656760809057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0179cc298d0b443a8621ec94922add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeCost: 20
+  damageIncrease: 15
+  upgradePanel: {fileID: 0}
+  costText: {fileID: 0}
+  levelText: {fileID: 0}
+  damageText: {fileID: 0}
+--- !u!114 &232188237489440618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010722656760809057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d781e98181a4a594fa0a8d667de98a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 4
+  delayBtwAttacks: 1
+  damage: 25
+  projectileSpawnPosition: {fileID: 6468054527861020048}
+  bulletPrefab: {fileID: 6968930727842562439, guid: 97067a9690d8b1445b5982482196ebd4, type: 3}

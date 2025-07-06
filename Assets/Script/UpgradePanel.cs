@@ -26,14 +26,35 @@ public class UpgradePanel : MonoBehaviour
         
         if (upgradePanel != null)
         {
-            upgradePanel.SetActive(true);
-            UpdateUpgradeUI();
-            
-            // Đăng ký với PanelManager
+            // Đóng tất cả panel khác trước
             if (PanelManager.Instance != null)
             {
-                PanelManager.Instance.RegisterPanel(upgradePanel);
+                PanelManager.Instance.CloseAllPanels();
             }
+            
+            // Kiểm tra xem panel đã mở chưa
+            if (!upgradePanel.activeInHierarchy)
+            {
+                upgradePanel.SetActive(true);
+                UpdateUpgradeUI();
+                
+                // Đăng ký với PanelManager
+                if (PanelManager.Instance != null)
+                {
+                    PanelManager.Instance.RegisterPanel(upgradePanel);
+                }
+                
+                Debug.Log($"📱 Upgrade panel opened for tower: {tower?.gameObject?.name ?? "Unknown"}");
+            }
+            else
+            {
+                Debug.Log($"📱 Upgrade panel already open for tower: {tower?.gameObject?.name ?? "Unknown"}");
+                UpdateUpgradeUI(); // Cập nhật UI nếu cần
+            }
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ upgradePanel is null!");
         }
     }
     

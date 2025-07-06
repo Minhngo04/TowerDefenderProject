@@ -40,6 +40,24 @@ public class Tower : MonoBehaviour
     {
         Debug.Log($"🖱️ Tower {gameObject.name} clicked");
         
+        // Đảm bảo towerUpgrade được khởi tạo
+        if (towerUpgrade == null)
+        {
+            towerUpgrade = GetComponent<TowerUpgrade>();
+        }
+        
+        // Nếu vẫn không có TowerUpgrade, thử tìm UpgradePanel trực tiếp
+        if (towerUpgrade == null)
+        {
+            Debug.LogWarning($"⚠️ No TowerUpgrade found on {gameObject.name}, trying to find UpgradePanel directly");
+            UpgradePanel panelScript = FindObjectOfType<UpgradePanel>();
+            if (panelScript != null)
+            {
+                panelScript.ShowUpgradePanel(null);
+                return;
+            }
+        }
+        
         if (towerUpgrade != null && towerUpgrade.upgradePanel != null)
         {
             Debug.Log($"✅ Opening upgrade panel for {gameObject.name}");

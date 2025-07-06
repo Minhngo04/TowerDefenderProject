@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 4
-  delayBtwAttacks: 2
+  delayBtwAttacks: 1.5
   damage: 40
   projectileSpawnPosition: {fileID: 8550564102386972988}
   bulletPrefab: {fileID: 6968930727842562439, guid: 97067a9690d8b1445b5982482196ebd4, type: 3}
