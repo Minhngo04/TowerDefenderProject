@@ -66,6 +66,16 @@ public class CampInfo : MonoBehaviour
 
             // ✅ Thu nhỏ pháo để phù hợp (chỉnh scale tùy ý bạn)
             tower.transform.localScale = new Vector3(0.2082919f, 0.2293043f, 1f);
+            
+            // Thêm script TowerUpgrade nếu chưa có
+            TowerUpgrade upgrade = tower.GetComponent<TowerUpgrade>();
+            if (upgrade == null)
+                upgrade = tower.AddComponent<TowerUpgrade>();
+
+            // Gán reference panel upgrade từ scene
+            UpgradePanel panelScript = FindObjectOfType<UpgradePanel>();
+            if (panelScript != null)
+                upgrade.upgradePanel = panelScript.gameObject;
 
             isBuilt = true;
 

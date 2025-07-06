@@ -1,13 +1,4 @@
-﻿using UnityEngine;
-
-public class CampClickLogger : MonoBehaviour
-{
-    // Hàm này sẽ được gọi khi đối tượng được click
-    private void OnMouseDown()
-    {
-        Debug.Log("Click Unity Hub");
-    }
-}
+using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
@@ -19,6 +10,12 @@ public class Tower : MonoBehaviour
 
     private float _nextAttackTime;
     private GameObject _currentProjectileLoaded;
+    private TowerUpgrade towerUpgrade;
+    
+    void Start()
+    {
+        towerUpgrade = GetComponent<TowerUpgrade>();
+    }
 
     void Update()
     {
@@ -35,6 +32,19 @@ public class Tower : MonoBehaviour
             {
                 Shoot(target);
                 _nextAttackTime = Time.time + delayBtwAttacks;
+            }
+        }
+    }
+    
+    private void OnMouseDown()
+    {
+        if (towerUpgrade != null && towerUpgrade.upgradePanel != null)
+        {
+            towerUpgrade.upgradePanel.SetActive(true);
+            UpgradePanel panelScript = towerUpgrade.upgradePanel.GetComponent<UpgradePanel>();
+            if (panelScript != null)
+            {
+                panelScript.ShowUpgradePanel(towerUpgrade);
             }
         }
     }
@@ -67,4 +77,4 @@ public class Tower : MonoBehaviour
             bulletScript.Damage = damage;
         }
     }
-}
+} 
