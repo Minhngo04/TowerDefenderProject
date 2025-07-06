@@ -30,8 +30,8 @@ public class SlimeSpawner : MonoBehaviour
             // Lệch nhẹ để tránh đè
             slime.transform.position += new Vector3(0, i * 0.1f, 0);
 
-            // Đợi 1.5 giây trước khi tạo con tiếp theo
-            yield return new WaitForSeconds(1.5f);
+            // Đợi 2.5 giây trước khi tạo con tiếp theo
+            yield return new WaitForSeconds(2.5f);
         }
     }
 }
