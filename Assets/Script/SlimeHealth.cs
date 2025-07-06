@@ -40,6 +40,13 @@ public class SlimeHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("[SlimeHealth] Enemy died.");
+        
+        // Thêm đồng xu khi tiêu diệt kẻ địch
+        if (CoinManager.Instance != null)
+        {
+            CoinManager.Instance.AddCoin(10); // Thưởng 10 xu cho mỗi slime
+        }
+        
         Destroy(gameObject); // hoặc phát hiệu ứng chết
     }
 }

@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimePrefab: {fileID: 4434686011590015859, guid: 600febe74903dc244b53cd308b626d8e, type: 3}
-  slimeCount: 10
+  slimeCount: 15

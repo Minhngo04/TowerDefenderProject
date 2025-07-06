@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2347347725496648705}
   - component: {fileID: 3705162565702898858}
   - component: {fileID: -1521340150690806877}
+  - component: {fileID: 584100476715307770}
   m_Layer: 0
   m_Name: Tanks_0
   m_TagString: Untagged
@@ -100,8 +101,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d781e98181a4a594fa0a8d667de98a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 4
   delayBtwAttacks: 2
   damage: 20
   projectileSpawnPosition: {fileID: 2347347725496648705}
   bulletPrefab: {fileID: 6968930727842562439, guid: 97067a9690d8b1445b5982482196ebd4, type: 3}
+--- !u!114 &584100476715307770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3272461132346874829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce420a942c72a4448cd041317f3d2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 20

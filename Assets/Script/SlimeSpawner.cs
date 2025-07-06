@@ -30,9 +30,8 @@ public class SlimeSpawner : MonoBehaviour
             // Lệch nhẹ để tránh đè
             slime.transform.position += new Vector3(0, i * 0.1f, 0);
 
-            // Đợi ngẫu nhiên từ 1–10 giây trước khi tạo con tiếp theo
-            float delay = Random.Range(1f, 10f);
-            yield return new WaitForSeconds(delay);
+            // Đợi 1.5 giây trước khi tạo con tiếp theo
+            yield return new WaitForSeconds(1.5f);
         }
     }
 }
