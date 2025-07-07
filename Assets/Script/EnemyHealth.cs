@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SlimeHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
     private float currentHealth;
 
-    public Image healthFill; // Kéo vào từ Inspector
+    public Image healthFill;
+    private Animator animator;
+    private bool isDead = false;
 
     void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
         UpdateHealthBar();
     }
 
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
+
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
-        Debug.Log($"[SlimeHealth] Took {amount} damage. Current health: {currentHealth}");
 
         UpdateHealthBar();
 
@@ -39,14 +42,23 @@ public class SlimeHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("[SlimeHealth] Enemy died.");
-        
-        // Thêm đồng xu khi tiêu diệt kẻ địch
+        isDead = true;
+
         if (CoinManager.Instance != null)
         {
-            CoinManager.Instance.AddCoin(10); // Thưởng 10 xu cho mỗi slime
+            CoinManager.Instance.AddCoin(10); // Có thể cho từng enemy 1 số xu khác nhau sau này
         }
-        
-        Destroy(gameObject); // hoặc phát hiệu ứng chết
+
+        if (animator != null)
+        {
+            animator.SetBool("isDeath", true);
+        }
+
+        Destroy(gameObject, 2f);
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 }

@@ -38,10 +38,10 @@ public class Bullet : MonoBehaviour
         Debug.Log("Bullet hit target!");
 
         // Tìm SlimeHealth ở target hoặc con của nó
-        SlimeHealth enemyHealth = target.GetComponent<SlimeHealth>();
+        EnemyHealth enemyHealth = target.GetComponent<EnemyHealth>();
         if (enemyHealth == null)
         {
-            enemyHealth = target.GetComponentInChildren<SlimeHealth>();
+            enemyHealth = target.GetComponentInChildren<EnemyHealth>();
         }
 
         if (enemyHealth != null)

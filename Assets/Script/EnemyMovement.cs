@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public float speed = 2f;
 
@@ -14,33 +14,60 @@ public class SlimeMovement : MonoBehaviour
     private float jumpDuration = 0.5f;
     private float jumpTimer = 0f;
 
+    private EnemyHealth enemyHealth;
+    private float originalXScale;
+
+    private bool pathSet = false;
+
     public void SetPath(List<Vector3> path)
     {
         fullPath = path;
+        currentPointIndex = 0;
+        pathSet = true;
+
+        Debug.Log($"[EnemyMovement] {gameObject.name} được gán path có {path.Count} điểm.");
     }
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        enemyHealth = GetComponent<EnemyHealth>();
+        originalXScale = Mathf.Abs(transform.localScale.x);
+
+        Debug.Log($"[EnemyMovement] {gameObject.name} Start() tại frame {Time.frameCount}");
     }
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Bullet"))
-    //    {
-    //        GetComponent<SlimeHealth>()?.TakeDamage(20f);
-    //        Destroy(other.gameObject);
-    //    }
-    //}
 
     void Update()
     {
-        if (currentPointIndex >= fullPath.Count)
+        // Nếu chưa có path → không làm gì cả
+        if (!pathSet || fullPath.Count == 0)
         {
-            animator?.SetBool("isJumping", false);
-            Destroy(gameObject); // Hủy slime khi hoàn thành đường đi
             return;
         }
 
+        // Nếu enemy chết → không di chuyển
+        if (enemyHealth != null && enemyHealth.IsDead())
+        {
+            animator?.SetBool("isJumping", false);
+            return;
+        }
+
+        // Nếu đi hết path
+        if (currentPointIndex >= fullPath.Count)
+        {
+            Debug.Log($"[EnemyMovement] {gameObject.name} đến hết path tại frame {Time.frameCount}");
+
+            if (enemyHealth != null && !enemyHealth.IsDead())
+            {
+                Debug.Log($"[EnemyMovement] {gameObject.name} gây mất máu");
+                HeartManager.Instance?.LoseHeart(1);
+            }
+
+            Destroy(gameObject);
+            return;
+        }
+
+        // Xử lý nhảy
         if (isJumping)
         {
             jumpTimer += Time.deltaTime;
@@ -54,11 +81,11 @@ public class SlimeMovement : MonoBehaviour
             return;
         }
 
+        // Di chuyển đến điểm
         Vector3 targetPos = fullPath[currentPointIndex];
         float distance = Vector3.Distance(transform.position, targetPos);
         Vector3 direction = (targetPos - transform.position).normalized;
 
-        // Nếu đến điểm nhảy
         if (jumpPoints.Contains(currentPointIndex) && distance < 0.1f)
         {
             isJumping = true;
@@ -66,7 +93,6 @@ public class SlimeMovement : MonoBehaviour
             return;
         }
 
-        // Di chuyển đến điểm tiếp theo
         if (distance > 0.05f)
         {
             transform.position += direction * speed * Time.deltaTime;
@@ -76,11 +102,11 @@ public class SlimeMovement : MonoBehaviour
             currentPointIndex++;
         }
 
-        // Lật hướng slime theo chiều di chuyển
+        // Lật hướng
         if (direction.x != 0)
         {
             Vector3 scale = transform.localScale;
-            scale.x = Mathf.Sign(direction.x) * Mathf.Abs(scale.x);
+            scale.x = -Mathf.Sign(direction.x) * originalXScale;
             transform.localScale = scale;
         }
     }

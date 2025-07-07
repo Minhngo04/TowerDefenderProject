@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3422135625532199162}
   - component: {fileID: 7023666098263554525}
   m_Layer: 0
-  m_Name: SlimeSpawner
-  m_TagString: Untagged
+  m_Name: EnemySpawner
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,5 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8316f1904ba2f4fa7a64b0410c9300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimePrefab: {fileID: 4434686011590015859, guid: 600febe74903dc244b53cd308b626d8e, type: 3}
-  slimeCount: 15
+  waves:
+  - enemyPrefab: {fileID: 6021050053637221810, guid: 39bc58b8abe5f2b47bf3e420c2d0c083, type: 3}
+    enemyCount: 10
+    spawnInterval: 1.5
+  - enemyPrefab: {fileID: 6025033314358109708, guid: 9fa509636578b3e429dce0227f71fb01, type: 3}
+    enemyCount: 10
+    spawnInterval: 1.5
+  - enemyPrefab: {fileID: 4434686011590015859, guid: 600febe74903dc244b53cd308b626d8e, type: 3}
+    enemyCount: 10
+    spawnInterval: 1.5
+  waveInterval: 2
