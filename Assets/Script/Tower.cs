@@ -85,6 +85,10 @@ public class Tower : MonoBehaviour
         float shortestDistance = Mathf.Infinity;
         foreach (GameObject enemy in enemies)
         {
+            // Bỏ qua enemy đã chết
+            EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+            if (health != null && health.IsDead()) continue;
+
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
             if (distance < shortestDistance && distance <= range)
             {

@@ -48,33 +48,23 @@ public class TowerClickHandler : MonoBehaviour
     void AdjustClickArea()
     {
         if (boxCollider == null || spriteRenderer == null) return;
-        
-        // Lấy kích thước sprite
+
+        // Lấy kích thước thực tế của sprite (không tính transparent)
         Vector2 spriteSize = spriteRenderer.sprite.bounds.size;
-        
-        if (useFixedClickArea)
-        {
-            // Sử dụng vùng click cố định, không phụ thuộc vào scale
-            Vector2 fixedClickSize = spriteSize * clickAreaMultiplier;
-            boxCollider.size = fixedClickSize;
-            
-            Debug.Log($"🎯 {gameObject.name}: Fixed click area set to {fixedClickSize} (sprite: {spriteSize})");
-        }
-        else
-        {
-            // Sử dụng vùng click theo scale hiện tại
-            Vector2 currentScale = transform.localScale;
-            Vector2 scaledClickSize = spriteSize * currentScale * clickAreaMultiplier;
-            boxCollider.size = scaledClickSize;
-            
-            Debug.Log($"🎯 {gameObject.name}: Scaled click area set to {scaledClickSize} (scale: {currentScale})");
-        }
-        
-        // Đảm bảo offset là 0 để collider ở giữa
-        boxCollider.offset = Vector2.zero;
-        
+        Vector2 spriteCenter = spriteRenderer.sprite.bounds.center;
+
+        // Tính lại vùng collider chỉ vừa với hình, không phóng to
+        float customMultiplier = 1.0f; // Giữ đúng bằng hình, không nhân lên
+        Vector2 fixedClickSize = spriteSize * customMultiplier;
+        boxCollider.size = fixedClickSize;
+
+        // Đặt offset collider đúng tâm hình
+        boxCollider.offset = spriteCenter;
+
         // Đảm bảo collider được enable
         boxCollider.enabled = true;
+
+        Debug.Log($"🎯 {gameObject.name}: Collider size set to {fixedClickSize}, offset {spriteCenter} (sprite: {spriteSize})");
     }
     
     // Phương thức để điều chỉnh lại vùng click khi cần thiết

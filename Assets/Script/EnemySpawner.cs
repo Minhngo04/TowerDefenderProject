@@ -14,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public List<EnemyWave> waves = new List<EnemyWave>();
     public float waveInterval = 5f;
+    public int aliveEnemyCount = 0;
 
     void Start()
     {
@@ -31,18 +32,21 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < wave.enemyCount; i++)
             {
                 GameObject enemy = Instantiate(wave.enemyPrefab, startPoint, Quaternion.identity);
-
+                aliveEnemyCount++; // Tăng số enemy sống
                 var path = Random.value > 0.5f ? PathManager.path1 : PathManager.path2;
-
                 var move = enemy.GetComponent<EnemyMovement>();
                 move.SetPath(path);
-
                 enemy.transform.position += new Vector3(0, i * 0.1f, 0);
-
                 yield return new WaitForSeconds(wave.spawnInterval);
             }
 
-            yield return new WaitForSeconds(waveInterval);
+            // Đợi đến khi không còn enemy nào còn sống
+            while (aliveEnemyCount > 0)
+            {
+                yield return null;
+            }
+            // Chờ thêm 2 giây
+            yield return new WaitForSeconds(2f);
         }
     }
 }

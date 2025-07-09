@@ -43,6 +43,11 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         isDead = true;
+        gameObject.tag = "Dead"; // Đổi tag ngay khi chết
+        // Giảm số enemy sống
+        EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+        if (spawner != null)
+            spawner.aliveEnemyCount--;
 
         if (CoinManager.Instance != null)
         {
