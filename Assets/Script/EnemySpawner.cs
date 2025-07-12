@@ -8,6 +8,10 @@ public class EnemyWave
     public GameObject enemyPrefab;
     public int enemyCount = 5;
     public float spawnInterval = 2.5f;
+    
+    [Header("Gold Reward")]
+    public int goldReward = 10;
+    public bool useCustomGold = false;
 }
 
 public class EnemySpawner : MonoBehaviour
@@ -33,6 +37,19 @@ public class EnemySpawner : MonoBehaviour
             {
                 GameObject enemy = Instantiate(wave.enemyPrefab, startPoint, Quaternion.identity);
                 aliveEnemyCount++; // Tăng số enemy sống
+                
+                // Cập nhật gold reward nếu sử dụng custom gold
+                if (wave.useCustomGold)
+                {
+                    EnemyData enemyData = enemy.GetComponent<EnemyData>();
+                    if (enemyData == null)
+                    {
+                        enemyData = enemy.AddComponent<EnemyData>();
+                    }
+                    
+                    enemyData.goldReward = wave.goldReward;
+                }
+                
                 var path = Random.value > 0.5f ? PathManager.path1 : PathManager.path2;
                 var move = enemy.GetComponent<EnemyMovement>();
                 move.SetPath(path);

@@ -11019,6 +11019,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7023666098263554525, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
+      propertyPath: waves.Array.data[0].goldReward
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023666098263554525, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
+      propertyPath: waves.Array.data[1].goldReward
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023666098263554525, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
+      propertyPath: waves.Array.data[2].goldReward
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023666098263554525, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
+      propertyPath: waves.Array.data[0].useCustomGold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023666098263554525, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
+      propertyPath: waves.Array.data[1].useCustomGold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7023666098263554525, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
+      propertyPath: waves.Array.data[2].useCustomGold
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
