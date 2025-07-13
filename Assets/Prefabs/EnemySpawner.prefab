@@ -45,14 +45,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
+  - enemyPrefab: {fileID: 1127750075625439045, guid: 669f57d40a4bc1849a1285faf3f3012e, type: 3}
+    enemyCount: 20
+    spawnInterval: 2
+    goldReward: 12
+    useCustomGold: 1
   - enemyPrefab: {fileID: 4434686011590015859, guid: 600febe74903dc244b53cd308b626d8e, type: 3}
     enemyCount: 20
     spawnInterval: 2
+    goldReward: 4
+    useCustomGold: 1
   - enemyPrefab: {fileID: 6021050053637221810, guid: 39bc58b8abe5f2b47bf3e420c2d0c083, type: 3}
     enemyCount: 15
     spawnInterval: 2
+    goldReward: 8
+    useCustomGold: 1
   - enemyPrefab: {fileID: 6025033314358109708, guid: 9fa509636578b3e429dce0227f71fb01, type: 3}
     enemyCount: 20
     spawnInterval: 2
+    goldReward: 12
+    useCustomGold: 1
+  - enemyPrefab: {fileID: 2186707034903203244, guid: 27e664ea7c1914b4c8b1b0e64d37724a, type: 3}
+    enemyCount: 20
+    spawnInterval: 2
+    goldReward: 12
+    useCustomGold: 1
   waveInterval: 2
   aliveEnemyCount: 0
