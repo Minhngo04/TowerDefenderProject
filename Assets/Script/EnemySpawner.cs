@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement; // <-- thêm dòng này
 using System.Collections;
 using System.Collections.Generic;
 
@@ -32,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < wave.enemyCount; i++)
             {
                 GameObject enemy = Instantiate(wave.enemyPrefab, startPoint, Quaternion.identity);
-                aliveEnemyCount++; // Tăng số enemy sống
+                aliveEnemyCount++;
                 var path = Random.value > 0.5f ? PathManager.path1 : PathManager.path2;
                 var move = enemy.GetComponent<EnemyMovement>();
                 move.SetPath(path);
@@ -40,13 +41,26 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(wave.spawnInterval);
             }
 
-            // Đợi đến khi không còn enemy nào còn sống
             while (aliveEnemyCount > 0)
             {
                 yield return null;
             }
-            // Chờ thêm 2 giây
+
             yield return new WaitForSeconds(2f);
         }
+
+        yield return new WaitForSeconds(2f);
+
+        // 👉 Kiểm tra scene hiện tại để quyết định scene tiếp theo
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Level_2")
+        {
+            SceneManager.LoadScene("EndMenu");
+        }
+        else
+        {
+            SceneManager.LoadScene("Level_2");
+        }
     }
+
 }
