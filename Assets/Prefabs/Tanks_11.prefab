@@ -139,6 +139,7 @@ MonoBehaviour:
   damage: 20
   projectileSpawnPosition: {fileID: 4086359134859105524}
   bulletPrefab: {fileID: 6968930727842562439, guid: 97067a9690d8b1445b5982482196ebd4, type: 3}
+  shootSound: {fileID: 8300000, guid: 6f6449a097d740349b3876558316211e, type: 3}
 --- !u!61 &4451340067219433580
 BoxCollider2D:
   m_ObjectHideFlags: 0

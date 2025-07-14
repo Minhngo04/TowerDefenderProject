@@ -7,6 +7,8 @@ public class Tower : MonoBehaviour
     public float damage = 2f;
     public Transform projectileSpawnPosition;
     public GameObject bulletPrefab;
+    public AudioClip shootSound; // Kéo file âm thanh vào đây trong Inspector
+    private AudioSource audioSource;
 
     private float _nextAttackTime;
     private GameObject _currentProjectileLoaded;
@@ -15,6 +17,12 @@ public class Tower : MonoBehaviour
     void Start()
     {
         towerUpgrade = GetComponent<TowerUpgrade>();
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+        }
     }
 
     void Update()
@@ -108,6 +116,11 @@ public class Tower : MonoBehaviour
         {
             bulletScript.Seek(target.transform);
             bulletScript.Damage = damage;
+        }
+        // Phát âm thanh khi bắn
+        if (shootSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(shootSound);
         }
     }
 } 
