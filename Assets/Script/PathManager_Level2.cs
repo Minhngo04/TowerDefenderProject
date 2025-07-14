@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathManager : MonoBehaviour
+public class PathManager_Level2 : MonoBehaviour
 {
     public static List<Vector3> path1 = new List<Vector3>
     {

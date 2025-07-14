@@ -28,21 +28,30 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnWaves()
     {
+        string currentScene = SceneManager.GetActiveScene().name;
+
         for (int waveIndex = 0; waveIndex < waves.Count; waveIndex++)
         {
             EnemyWave wave = waves[waveIndex];
 
             for (int i = 0; i < wave.enemyCount; i++)
             {
-                // ✅ Random chọn path đúng trước
-                List<Vector3> path = Random.value > 0.5f ? PathManager.path1 : PathManager.path2;
+                // ✅ Chọn path theo scene
+                List<Vector3> path;
+                if (currentScene == "Level_2")
+                {
+                    path = Random.value > 0.5f ? PathManager_Level2.path1 : PathManager_Level2.path2;
+                }
+                else
+                {
+                    path = Random.value > 0.5f ? PathManager_Level1.path1 : PathManager_Level1.path2;
+                }
 
-                // ✅ Lấy điểm spawn đúng theo path đầu tiên
                 Vector3 spawnPosition = path[0] + new Vector3(0, i * 0.1f, 0);
-
                 GameObject enemy = Instantiate(wave.enemyPrefab, spawnPosition, Quaternion.identity);
                 aliveEnemyCount++;
 
+                // Custom gold
                 if (wave.useCustomGold)
                 {
                     EnemyData enemyData = enemy.GetComponent<EnemyData>();
@@ -53,7 +62,6 @@ public class EnemySpawner : MonoBehaviour
                     enemyData.goldReward = wave.goldReward;
                 }
 
-                // ✅ Gán path phù hợp đã chọn
                 EnemyMovement move = enemy.GetComponent<EnemyMovement>();
                 move.SetPath(path);
 
@@ -70,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        string currentScene = SceneManager.GetActiveScene().name;
+        // ✅ Chuyển màn
         if (currentScene == "Level_2")
         {
             SceneManager.LoadScene("EndMenu");
@@ -81,8 +89,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-
-    // ✅ Gọi phương thức này khi enemy chết
+    // ✅ Gọi khi enemy chết
     public void NotifyEnemyDeath()
     {
         aliveEnemyCount = Mathf.Max(0, aliveEnemyCount - 1);

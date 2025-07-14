@@ -63,6 +63,12 @@ public class EnemyMovement : MonoBehaviour
                 HeartManager.Instance?.LoseHeart(1);
             }
 
+            EnemySpawner spawner = FindObjectOfType<EnemySpawner>();
+            if (spawner != null)
+            {
+                spawner.NotifyEnemyDeath();
+            }
+
             Destroy(gameObject);
             return;
         }

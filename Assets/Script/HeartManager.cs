@@ -7,7 +7,7 @@ public class HeartManager : MonoBehaviour
     public static HeartManager Instance;
 
     [Header("Cấu hình máu")]
-    [SerializeField] private int maxHearts = 10;
+    [SerializeField] private int maxHearts = 3;
 
     private int currentHearts;
 
