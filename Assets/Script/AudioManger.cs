@@ -8,20 +8,20 @@ public class AudioManager : MonoBehaviour
     public AudioClip menuMusic;
     public AudioClip levelMusic;
 
-    void Awake()
-    {
-        // Singleton pattern: Đảm bảo chỉ có 1 AudioManager tồn tại
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); 
-        }
-        else
-        {
-            Destroy(gameObject); 
-            return;
-        }
-    }
+    //void Awake()
+    //{
+    //    // Singleton pattern: Đảm bảo chỉ có 1 AudioManager tồn tại
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //        DontDestroyOnLoad(gameObject); 
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject); 
+    //        return;
+    //    }
+    //}
 
     void Start()
     {
