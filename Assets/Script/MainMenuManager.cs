@@ -30,7 +30,9 @@ public class MainMenuManager : MonoBehaviour
     public void setQuit()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
 
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }
