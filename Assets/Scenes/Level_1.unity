@@ -12118,14 +12118,6 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 1690880652}
-    - target: {fileID: 7023666098263554525, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
-      propertyPath: mapTransform
-      value: 
-      objectReference: {fileID: 1690880650}
-    - target: {fileID: 7023666098263554525, guid: b099cf153e8874e45834d97035cdadfa, type: 3}
-      propertyPath: groundTilemap
-      value: 
-      objectReference: {fileID: 1690880652}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
